@@ -1,5 +1,5 @@
 <?php
-$db = mysql_connect ("192.168.137.2","root","");
+$db = mysql_connect ("127.0.0.1:3306","root","");
 mysql_select_db("lab-kvinto",$db)or die("CAN NOT ACCEPT THIS DB");
 ?>
 <!DOCTYPE html>
@@ -29,7 +29,7 @@ mysql_select_db("lab-kvinto",$db)or die("CAN NOT ACCEPT THIS DB");
 					</div>
 				</li><li><a href="works">Справочники</a>
 				<ul class="submenu">
-					<li class="sub"> <a href="/">HTML</a> </li>
+					<li class="sub"> <a href="/lab/gate/chambers/handbook/html/index.html">HTML</a> </li>
 					<li class="sub"> <a href="/">CSS</a> </li>
 					<li class="sub"> <a href="/">jQuery</a> </li>
 				</ul>
@@ -114,5 +114,77 @@ mysql_select_db("lab-kvinto",$db)or die("CAN NOT ACCEPT THIS DB");
 		</div>
 	</div>
 </section>
+<?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+$module = 'index';
+$action = 'index';
+
+$params = array();
+
+if ($_SERVER['REQUEST_URI'] != '/') {
+try {
+
+$url_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+$uri_parts = explode('/', trim($url_path, ' /'));
+
+if (count($uri_parts) % 2) {
+throw new Exception();
+}
+ 
+$module = array_shift($uri_parts); 
+$action = array_shift($uri_parts); 
+
+for ($i=0; $i < count($uri_parts); $i++) {
+$params[$uri_parts[$i]] = $uri_parts[++$i];
+}
+} catch (Exception $e) {
+$module = '404';
+$action = 'main';
+}
+}
+ 
+//echo "\$module: $module\n";
+//echo "\$action: $action\n";
+//echo "\$params:\n";
+//print_r($params);
+ 
+?>
+
+ <?php
+
+class Router {
+    private $_route = array();
+	
+
+    public function setRoute($dir, $file) {
+        $this->_route[trim($dir, '/')] = $file;
+    }
+  
+    public function route() {
+        if (!isset($_SERVER['PATH_INFO'])) { 
+            include_once 'index.html'; 
+        } elseif (isset($this->_route[trim($_SERVER['PATH_INFO'], '/')])) {
+            include_once $this->_route[trim($_SERVER['PATH_INFO'], '/')];   
+        }
+        else return false; 
+ 
+        return true;
+    }
+}
+
+$route = new Router;
+$route->setRoute('/handbook/html', "index.html"); 
+//$route->setRoute('article-2', "2.html");
+if (!$route->route()) { 
+    echo 'Маршрут не задан';
+}
+
+?>   
+    
+    
 </body>
 </html>

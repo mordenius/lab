@@ -1,12 +1,6 @@
-<html>
-<head>
-    <title>Справочник по HTML</title>
-</head>
-<meta charset="utf-8">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/styles.css">
+<!-- <link rel="stylesheet" type="text/css" href="css/styles.css"> -->
 
-<body>
+<section>
     <h1>Справочник по HTML </h1>
     <input id="Input_Seorch" type="text" placeholder="Поиск">
     <div class="tag_meny"> </div>
@@ -16,6 +10,8 @@
     <div class="result">
         <div> </div>
     </div>
+</section>
+
     <script>
         $(document).ready(function() {
             var Width_Wrap_tegs = $(".wrap_tegs").width();
@@ -113,5 +109,3 @@ if (done){require = find }
             });
         });
     </script>
-</body>
-</html>

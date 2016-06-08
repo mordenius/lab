@@ -9,16 +9,16 @@ $module = 'index';
 $action = 'index';
 
 $params = array();
-
+include_once (HOST_LOC.'/gate/facade/header.php');
 if ($_SERVER['REQUEST_URI'] != '/') {
 	try {
 
 		$url_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 		$uri_parts = explode('/', trim($url_path, ' /'));
-		if (count($uri_parts) % 2) {
-			throw new Exception();
-		}
+		// if (count($uri_parts) % 2) {
+		// 	throw new Exception();
+		// }
 		 
 		$module = array_shift($uri_parts); 
 		$action = array_shift($uri_parts); 
@@ -31,8 +31,10 @@ if ($_SERVER['REQUEST_URI'] != '/') {
 		$module = '404';
 		$action = 'main';
 	}
+}else{
+	include_once (HOST_LOC.'/gate/chambers/home.php');
 }
- 
+include_once (HOST_LOC.'/gate/facade/footer.php');
 //echo "\$module: $module\n";
 //echo "\$action: $action\n";
 //echo "\$params:\n";

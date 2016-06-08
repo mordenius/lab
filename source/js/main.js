@@ -25,7 +25,7 @@ $(function() {
     $(".nav .submenu").hide();
     $(".nav ul > li > a").click(function(e) {
         if ($(this).parent().find("ul.submenu li.sub").length > 0) {
-            e.preventDefault();
+           e.preventDefault();
 
             if ($(this).hasClass("menu-closed")) {
 
@@ -41,7 +41,7 @@ $(function() {
             $(this).parent().find("ul.submenu").slideToggle();
 
         } else {
-            e.preventDefault();
+          //  e.preventDefault();
             $('#preload').fadeIn(200);
             content = $(this).attr('href');
             getContent(content);

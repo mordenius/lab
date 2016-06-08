@@ -1,0 +1,101 @@
+@media (max-width: 1024px) html,
+body {
+    width: 930px;
+    font: 0.92em/1.4 Arial,
+    sans-serif;
+    text-align:center;
+}
+body {
+    width: 930px;
+    font: 0.92em/1.4 Arial, sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 0 0 0;
+}
+body > input {
+    border-style: solid;
+    border-color: #1D67A4;
+    outline: none;
+    /* background: #1D67A4;*/
+    width: 260px;
+    height: 30px;
+    float: right;
+    margin-right: 80px;
+    font-size: 20px;
+    color: #1D67A4;
+    font-weight: bold;
+}
+body > h1 {
+    margin-top: 130px;
+    color: #666;
+}
+
+.tag_meny{
+    margin-top: 100px;
+    font-size: 20px; 
+}
+
+.tag_meny{
+  
+}
+
+
+.tag_meny > a {
+    padding-left: 10px;  
+    background: #DEDEF1;
+}
+
+.tag_meny > .active {
+   color:red; 
+}
+
+.wrap_tegs > ul {
+  
+    
+}
+.wrap_tegs > ul > li {
+    list-style-type: none;
+    float: left;
+    width: 120px;
+    padding-bottom: 10px;
+}
+.wrap_tegs > ul > li > a {
+    color: #1D67A4;
+    font-size: 20px;
+}
+
+h2 {
+    margin: 0 auto;
+    padding: 0 0 0 0;
+    font-size: 25px;
+    width: 30px;
+    margin-right: 453px;
+    text-align: center;
+    color: #666;
+    cursor: pointer;
+}
+
+
+
+.result {
+    width: 200px;
+    border-color: #1D67A4;
+    margin-left: -300px;
+    position: absolute;
+    z-index: 2;
+    top: 365px;
+}
+.result > div {
+    margin: 0 auto;
+}
+.result > div > span {
+    padding: 5px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    display: inline-block;
+    background: #1D67A4;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+}
+

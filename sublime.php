@@ -1,5 +1,5 @@
 <?php
-$db = mysql_connect ("192.168.137.2","root","");
+$db = mysql_connect ("127.0.0.1","root","");
 mysql_select_db("lab-kvinto",$db)or die("CAN NOT ACCEPT THIS DB");
 ?>
 <!DOCTYPE html>

@@ -1,0 +1,307 @@
+@import url('fonts/fonts.css');
+
+*{
+	padding: 0;
+	margin: 0;
+}
+
+body{
+	background-color: #2c2d32;
+	text-align: center;
+	font-family: 'PFSquareSansPro-Light';
+}
+#darkmask {
+    opacity: 1;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    z-index: 91;
+    top: 0;
+    left: 0;
+    position: fixed;
+    opacity: 0.7;
+    display: none;
+}
+a{
+	text-decoration: none;
+}
+/*
+	Navigation
+*/
+.nav {
+	top: 0;
+	left: -260px;
+	width: 260px;
+	height: 100%;
+	position: fixed;
+	z-index: 9999;
+	background: #2c2d32;
+	text-align: left;
+}
+.shadow{
+	-webkit-box-shadow: 10px 0px 20px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 0px 20px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 0px 20px 0px rgba(0,0,0,0.75);
+}
+.nav ul.submenu li a{
+	padding-left:35px;
+}
+.nav-header {
+	position: absolute;
+	clear: both;
+	background: #2c2d32;
+	left: 260px;
+}
+.nav-header, .nav {
+	display: block;
+}
+.nav ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	position: relative;
+	z-index: 990;
+}
+.nav ul * {
+	z-index: 990;
+}
+}
+.nav ul li {
+	display: block;
+}
+.nav li.mobilesearch {
+	padding: 15px 15px 13px 15px;
+	border-bottom: 1px solid #6b20a1;
+}
+.nav ul li a {
+	display: block;
+	padding: 15px;
+	border-bottom: 1px solid #1d1d1d;
+	z-index: 9999;
+	color: #fff!important;
+}
+.nav ul li:hover > a {
+	color: #fff!important;
+}
+.nav li.mobilesearch a:hover {
+	background: #fff!important;
+}
+.nav li.mobilesearch .searchfield input {
+	width: 80%;
+	height: 30px;
+	padding-left: 30px;
+	background: url('../img/search-small2.png') no-repeat 5px #edeeef;
+	border: none;
+	z-index: 991;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
+.toggle {
+	width: 60px;
+	height: 60px;
+	background: url('../img/menu-mobile.png') no-repeat 0 center;
+	cursor: pointer;
+	float: left;
+	position: relative;
+	z-index: 990;
+}
+.nav .menu-closed {
+	background: url('../img/expand-arrow.png') no-repeat 230px;
+}
+.nav .menu-closed:hover {
+	background: url('../img/expand-arrow-white.png') no-repeat 230px;
+	color: #fff;
+}
+.nav .menu-open {
+	background: url('../img/expanded-arrow-white.png') no-repeat 230px;
+}
+.nav .menu-open:hover, .nav .menu-open {
+	background: url('../img/expanded-arrow-white.png') no-repeat 230px;
+	color: #fff !important;
+	border-bottom: 1px solid #6b20a1;
+}
+.nav .menu-open .submenu li a {
+	color: #000;
+}
+.nav .submenu li:hover a {
+	background: url('../img/expanded-arrow.png') no-repeat 230px;
+	color: #fff;
+}
+.nav .menu-open .submenu li:hover a {
+	color: #fff;
+}
+.nav li a:not(.hassub):hover {
+	color: #fff;
+}
+
+
+
+section{
+	margin: 60px 15px 0;
+	text-align: left;
+}
+section ul {
+	list-style: none;
+	padding: 0 15px;
+}
+section h3 {
+	background: #000;
+	color: #fff;
+	text-align: left;
+	padding: 5px 10px;
+	font-size: 16px;
+}
+section a,
+section a:visited{
+	color: #fbdeb0;
+}
+section a:hover{
+	color: #fff;
+}
+
+section {
+	color: #fff;
+}
+div.code {
+	background: #eee;
+	color: #000;
+	padding: 10px;
+}
+
+/*handboock style*/
+
+body > input {
+    border-style: solid;
+    border-color: #1D67A4;
+    outline: none;
+    /* background: #1D67A4;*/
+    width: 260px;
+    height: 30px;
+    float: right;
+    margin-right: 80px;
+    font-size: 20px;
+    color: #1D67A4;
+    font-weight: bold;
+}
+body > h1 {
+    margin-top: 130px;
+    color: #666;
+}
+
+.tag_meny{
+    margin-top: 100px;
+    font-size: 20px; 
+}
+
+.tag_meny{
+  
+}
+
+
+.tag_meny > a {
+    padding-left: 10px;
+    background: #2c2d32;
+}
+
+.tag_meny > .active {
+   color:red; 
+}
+
+.wrap_tegs > ul {
+  
+    
+}
+.wrap_tegs > ul > li {
+    list-style-type: none;
+    float: left;
+    width: 120px;
+    padding-bottom: 10px;
+}
+
+
+h2 {
+    margin: 0 auto;
+    padding: 0 0 0 0;
+    font-size: 25px;
+    width: 30px;
+    margin-right: 453px;
+    text-align: center;
+    color: #666;
+    cursor: pointer;
+}
+
+
+
+.result {
+    width: 344px;
+    border-color: #1D67A4;
+    margin-left: 0;
+    position: absolute;
+    z-index: 2;
+    top: 55px;
+    left: 751px;
+    height: 170px;
+    overflow: hidden;
+}
+.result > div {
+    margin: 0 auto;
+    height: 140px;
+    /* overflow: hidden; */
+}
+.result > div > span {
+    padding: 5px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    display: inline-block;
+    background: #1D67A4;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

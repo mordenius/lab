@@ -1,8 +1,10 @@
 <!-- <link rel="stylesheet" type="text/css" href="css/styles.css"> -->
+
  <link rel="stylesheet" href="https://lab:80/gate/handbook/html/css/style.css">
 <section>
     <h1>Справочник по HTML </h1>
    
+
     <input id="Input_Seorch" type="text" placeholder="Поиск">
     <div class="tag_meny"> </div>
     <div class="wrap_tegs">
@@ -14,7 +16,9 @@
 </section>
 
     <script>
+
         
+
         $(document).ready(function() {
             var Width_Wrap_tegs = $(".wrap_tegs").width();
             var result;
@@ -22,12 +26,14 @@
             $.post('Untitled-5.php', {
                 value1: '1',
                 value2: '2'
+
                
             }, function(data) {
                  console.log(data);
                 // $("body").text(data)
                 html_tags = JSON.parse(data);
             }).done(function() {
+
                 $.each(html_tags, function(key, value) {
                     console.log(html_tags);
 

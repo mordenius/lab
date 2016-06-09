@@ -8,12 +8,15 @@ define('HOST_LOC', __DIR__.'/');
 
 if ($_POST){
 	$sdd_db_host='127.0.0.1:3306';
+
 	$sdd_db_name='html_tags_browser'; 
 	$sdd_db_user='root'; 
 	$sdd_db_pass=''; 
 	@mysql_connect($sdd_db_host,$sdd_db_user,$sdd_db_pass); 
 	@mysql_select_db($sdd_db_name); 
+
 	$result=mysql_query('SELECT * FROM `html-tags`');
+
 	$json_data = array();     
 	while($row=mysql_fetch_array($result))
 	{            
@@ -38,8 +41,10 @@ if ($_POST){
    exit();
 }
 
+
 $module = 'lab';
 $action = 'index.php';
+
 
 $params = array();
 include_once (HOST_LOC.'/gate/facade/header.php');

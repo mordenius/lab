@@ -1,11 +1,15 @@
 <?php
+
 $sdd_db_host='127.0.0.1:3306';
+
 $sdd_db_name='html_tags_browser'; 
 $sdd_db_user='root'; 
 $sdd_db_pass=''; 
 @mysql_connect($sdd_db_host,$sdd_db_user,$sdd_db_pass); 
 @mysql_select_db($sdd_db_name); 
+
 $result=mysql_query('SELECT * FROM `html-tags`');
+
 $json_data = array();     
 while($row=mysql_fetch_array($result))
 {            
@@ -15,7 +19,9 @@ $json_data[] = array ('id'=>$row['id'], 'tag_name'=>$row['tag_name'], 'tag_attri
      if(isset($_POST['value1'], $_POST['value2'])){ 
      $return = '';
      if($_POST['value1'] < $_POST['value2']){ 
+
         $return =  json_encode($json_data); 
+
      } 
      elseif($_POST['value1'] > $_POST['value2']){ 
         $return = '2'; 
@@ -26,7 +32,9 @@ $json_data[] = array ('id'=>$row['id'], 'tag_name'=>$row['tag_name'], 'tag_attri
     echo $return; 
    } 
    else{  
+
    }   
+
 ?>   
 
      

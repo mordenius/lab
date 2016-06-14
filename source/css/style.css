@@ -285,17 +285,87 @@ section > h1 {
     margin-top: 80px;
 }
 
+.select_tag{
+    
+width: 960px;
+    
+margin: 0 auto;
+    
+background: rgba(198, 180, 180, 0.14);
+    
+height: 1920px;
+    
+box-shadow: -1px 5px 69px 0 #000000,0px 0 0 0px;
+    
+/* -webkit-box-shadow: inset 0px 0px 50px 0px #FFFAFA,5px 5px 5px 1px #BFB5B5; */
+    
+-moz-box-shadow: inset 0px 0px 50px 0px #FFFAFA,5px 5px 5px 1px #BFB5B5;
+    
+-o-box-shadow: inset 0px 0px 50px 0px #FFFAFA,5px 5px 5px 1px #BFB5B5;
+}
+
+
+.select_tag > div{
+    margin: 0 auto;
+    padding: 0 0 0 0;
+    width: 815px;
+    padding-top: 35px;
+    font-size: 20px;
+}
+
+.select_tag > div > p {
+    
+    
+}
+
+.select_tag > div > p > span {
+  
+padding-right: 25px;
+}
 
 
 
+.select_tag > .tag_name{
+    
+font-size: 30px;
+}
 
+.select_tag > .tag_type{
+  
+font-size: 20px;
+}
 
+.select_tag > .tag_attribute{
+    
+}
 
+.select_tag > .tag_syntax{
+    
+}
 
+.select_tag > .tag_closing{
+    
+}
 
+.select_tag > .tag_description{
+    
+}
 
+.select_tag > .tag_specification {
+    
+        
+}
 
+.select_tag > .tag_example {
+    
+        
+}
 
+.select_tag > .tag_note {
+    
+    
+        
+}
 
 
 

@@ -3,20 +3,27 @@
  <link rel="stylesheet" href="https://lab:80/gate/handbook/html/css/style.css">
 <section>
     <h1>Справочник по HTML </h1>
-   
-
     <input id="Input_Seorch" type="text" placeholder="Поиск">
     <div class="tag_meny"> </div>
     <div class="wrap_tegs">
         <ul> </ul>
     </div>
-
-</section>
+    <div class="select_tag">
+              <div class="tag_name"> </div>
+              <div class="tag_type"><p><span>Тип</span>  </p>        </div>
+              <div class="tag_attribute"><p><span>Атрибут</span></p></div>
+              <div class="tag_syntax"><p><span>Синтаксис</span> </p></div>
+              <div class="tag_closing"><p><span>Закрывающий тег</span></p></div>
+              <div class="tag_description"><p><span>Описание</span></p></div>
+              <div class="tag_specification"><p><span>Спецыфикация</span></p></div>
+              <div class="tag_example"><p><span>Пример</span></p></div>
+              <div class="tag_note"><p><span>Примечание</span></p></div>
+     </div>
+ </section>
 
     <script>
 $(document).ready(function() {
     var Width_Wrap_tegs = $(".wrap_tegs").width();
-
     var html_tags;
     $.post('Untitled-5.php', {
         value1: '1',
@@ -33,36 +40,38 @@ $(document).ready(function() {
                     app.append('<ul class=' + value["tag_name"][0] + '>' + '<h2 class=' + value["tag_name"][0] + "_" + '>' + value["tag_name"][0].toUpperCase() + '</h2>' + '<br>' + '</ul>', '<br>');
                 }
                 $('.' + value["tag_name"][0]).append('<li>' + '<a href="#">' + "&lt;" + value["tag_name"] + ">" + '</a>' + '</li>');
-
-            } else {
+            }else{
                 var tag = "spec_simbols"
                 if ($('.' + tag).length) {} else {
                     app.prepend('<br>', '<ul class="spec_simbols"><h2 class="spec_simbols_">!<h2></ul>');
                 }
-
                 $(".spec_simbols").append('<li>' + '<a href="#">' + "&lt;" + "!" + value["tag_name"] + ">" + '</a>' + '</li>');
             }
                      
-            $("body").keypress(function(e) {
-                $("#Input_Seorch").focus();
-            });
-            var value_seorch;
-            document.onkeyup = function(e) {
-
-                value_seorch = $("#Input_Seorch").val();
-                seorch(value_seorch);
-            }
-
-            function seorch(value_seorch) {
-                $.each(html_tags, function(key, value) {
-                    if (value["tag_name"].indexOf(value_seorch) != -1) {
-
-                    }
-                })
-
-            }
+      
         })         
         $(".tag_meny").prepend('<a class="spec_simbols_"> ! </a>');
+        //---------------------------------------------------------------
+        
+   
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         //----------------------------------------------------------------
         var tgl = 0;
         var OfOn = 0;
@@ -95,7 +104,65 @@ $(document).ready(function() {
             };
         });
     });
+//--    
+   $("body").keypress(function(e) {
+        $("#Input_Seorch").focus();
+    });
+    var value_seorch;
+    document.onkeyup = function(e) {
+        value_seorch = $("#Input_Seorch").val();
+        seorch(value_seorch);
+    }
+    function seorch(value_seorch) {
+        $.each(html_tags, function(key, value) {
+            if (value["tag_name"].indexOf(value_seorch) != -1) {
+
+            }
+        })
+    }    
+//--
+    
+// --- show teg information 
+$('.wrap_tegs').on('click', 'ul > li > a', function(event) {
+  var val_tag_name = $(this).text().slice(1, -1);
+   $('.wrap_tegs').css({'display' : 'none'});
+ function seorch_tegs(val_tag_name) {
+   $.each(html_tags, function(key, value) {
+       console.log(value);
+     if (value["tag_name"] == val_tag_name) {
+               //$(".tag_name  p").text("<" + value["tag_name"] + ">"); 
+         
+               $(".tag_name").append('<p><span>Тег</span>' + '&lt;' + value["tag_name"] + '&gt;' + '</p>'); 
+         
+         
+         
+               $(".tag_type  p").text("<" + value["tag_type"] + ">");
+               $(".tag_attribute  p").text("<" + value["tag_attribute"] + ">");
+               $(".tag_syntax  p").text(value["tag_syntax"]);
+               $(".tag_closing  p").text("< " + value["tag_closing"] + " >");
+               $(".tag_description  p").text(value["tag_description"] );
+               $(".tag_specification  p").text("<" + value["tag_specification"] + " >");
+               $(".tag_example  p").text(value["tag_example"]);
+               $(".tag_note  p").text(value["tag_note"]);   
+              
+               //-----
+               //  $(".tag_name  p").append("<span> фывафываыфв <span>");
+         
+         
+         
+       }   
+    })
+ } 
+ seorch_tegs(val_tag_name)               
+               
+      
+   
+   
+      
+ });
+//---------------------------------------------------------------    
     var height_ul = function() {
+        
         var height = $(".wrap_tegs > ul > li").height();
         var c = 0;
         var ctr = 0;
@@ -115,7 +182,15 @@ $(document).ready(function() {
             }
             $(".wrap_tegs > .active").height((height + 60) + 80);
         });
+        
     }
+    
+    
+
+    
+    
+    
+    
     $(".tag_meny").click(function() {
         height_ul();
     });

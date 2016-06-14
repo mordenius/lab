@@ -20,7 +20,7 @@ if ($_POST){
 	$json_data = array();     
 	while($row=mysql_fetch_array($result))
 	{            
-	$json_data[] = array ('id'=>$row['id'], 'tag_name'=>$row['tag_name'], 'tag_attribute'=>$row['tag_attribute'], 'tag_syntax'=>$row['tag_syntax'], 'tag_closing'=>$row['tag_closing'], 'tag_description'=>$row['tag_description'], 'tag_specification'=>$row['tag_specification'], 'tag_example'=>$row['tag_example'], 'tag_note'=>$row['tag_note']);
+	$json_data[] = array ('id'=>$row['id'], 'tag_name'=>$row['tag_name'], 'tag_type'=>$row['tag_type'], 'tag_attribute'=>$row['tag_attribute'], 'tag_syntax'=>$row['tag_syntax'], 'tag_closing'=>$row['tag_closing'], 'tag_description'=>$row['tag_description'], 'tag_specification'=>$row['tag_specification'], 'tag_example'=>$row['tag_example'], 'tag_note'=>$row['tag_note']);
 	}     
  $json_data  = str_replace("<", "&lt;",  $json_data); 
      if(isset($_POST['value1'], $_POST['value2'])){ 

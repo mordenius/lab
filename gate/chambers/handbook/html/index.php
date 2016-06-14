@@ -10,14 +10,14 @@
     </div>
     <div class="select_tag">
               <div class="tag_name"> </div>
-              <div class="tag_type"><p><span>Тип</span>  </p>        </div>
-              <div class="tag_attribute"><p><span>Атрибут</span></p></div>
-              <div class="tag_syntax"><p><span>Синтаксис</span> </p></div>
-              <div class="tag_closing"><p><span>Закрывающий тег</span></p></div>
-              <div class="tag_description"><p><span>Описание</span></p></div>
-              <div class="tag_specification"><p><span>Спецыфикация</span></p></div>
-              <div class="tag_example"><p><span>Пример</span></p></div>
-              <div class="tag_note"><p><span>Примечание</span></p></div>
+              <div class="tag_type"> </div>
+              <div class="tag_attribute"> </div>
+              <div class="tag_syntax"> </div>
+              <div class="tag_closing"> </div>
+              <div class="tag_description"> </div>
+              <div class="tag_specification"> </div>
+              <div class="tag_example"> </div>
+              <div class="tag_note"> </div>
      </div>
  </section>
 
@@ -72,7 +72,7 @@ $(document).ready(function() {
         
         
         
-        //----------------------------------------------------------------
+        //-----------------------------------------------------------------
         var tgl = 0;
         var OfOn = 0;
         $(".tag_meny > a").click(function() {
@@ -130,39 +130,25 @@ $('.wrap_tegs').on('click', 'ul > li > a', function(event) {
    $.each(html_tags, function(key, value) {
        console.log(value);
      if (value["tag_name"] == val_tag_name) {
-               //$(".tag_name  p").text("<" + value["tag_name"] + ">"); 
-         
+               // ---
                $(".tag_name").append('<p><span>Тег</span>' + '&lt;' + value["tag_name"] + '&gt;' + '</p>'); 
-         
-         
-         
-               $(".tag_type  p").text("<" + value["tag_type"] + ">");
-               $(".tag_attribute  p").text("<" + value["tag_attribute"] + ">");
-               $(".tag_syntax  p").text(value["tag_syntax"]);
-               $(".tag_closing  p").text("< " + value["tag_closing"] + " >");
-               $(".tag_description  p").text(value["tag_description"] );
-               $(".tag_specification  p").text("<" + value["tag_specification"] + " >");
-               $(".tag_example  p").text(value["tag_example"]);
-               $(".tag_note  p").text(value["tag_note"]);   
-              
-               //-----
-               //  $(".tag_name  p").append("<span> фывафываыфв <span>");
-         
-         
-         
-       }   
-    })
- } 
- seorch_tegs(val_tag_name)               
-               
-      
-   
-   
-      
+               $(".tag_type").append('<p><span>sdfsdf</span>' + '&lt;' + value["tag_type"] + '&gt;' + '</p>'); 
+               $(".tag_attribute").append('<p><span>Тег</span>' + '&lt;' + value["tag_attribute"] + '&gt;' + '</p>'); 
+               $(".tag_syntax").append('<p><span>Тег</span>' + '&lt;' + value["tag_syntax"] + '&gt;' + '</p>'); 
+               $(".tag_closing").append('<p><span>Тег</span>' + '&lt;' + value["tag_closing"] + '&gt;' + '</p>'); 
+               $(".tag_description").append('<p><span>Тег</span>' + '&lt;' + value["tag_description"] + '&gt;' + '</p>'); 
+               $(".tag_specification").append('<p><span>Тег</span>' + '&lt;' + value["tag_specification"] + '&gt;' + '</p>'); 
+               $(".tag_example").append('<p><span>Тег</span>' + '&lt;' + value["tag_example"] + '&gt;' + '</p>'); 
+               $(".tag_note").append('<p><span>Тег</span>' + '&lt;' + value["tag_note"] + '&gt;' + '</p>'); 
+               // ---
+               //$(".tag_name  p").append("<span> фывафываыфв <span>"); 
+            }   
+         })
+      } 
+ seorch_tegs(val_tag_name)                  
  });
 //---------------------------------------------------------------    
     var height_ul = function() {
-        
         var height = $(".wrap_tegs > ul > li").height();
         var c = 0;
         var ctr = 0;
@@ -181,14 +167,10 @@ $('.wrap_tegs').on('click', 'ul > li > a', function(event) {
                 $(".wrap_tegs > .active").height((height + 80) * ctr);
             }
             $(".wrap_tegs > .active").height((height + 60) + 80);
-        });
-        
+        });   
     }
     
-    
 
-    
-    
     
     
     $(".tag_meny").click(function() {

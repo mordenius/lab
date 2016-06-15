@@ -40,38 +40,22 @@ $(document).ready(function() {
                     app.append('<ul class=' + value["tag_name"][0] + '>' + '<h2 class=' + value["tag_name"][0] + "_" + '>' + value["tag_name"][0].toUpperCase() + '</h2>' + '<br>' + '</ul>', '<br>');
                 }
                 $('.' + value["tag_name"][0]).append('<li>' + '<a href="#">' + "&lt;" + value["tag_name"] + ">" + '</a>' + '</li>');
-            }else{
+            } else {
                 var tag = "spec_simbols"
                 if ($('.' + tag).length) {} else {
                     app.prepend('<br>', '<ul class="spec_simbols"><h2 class="spec_simbols_">!<h2></ul>');
                 }
                 $(".spec_simbols").append('<li>' + '<a href="#">' + "&lt;" + "!" + value["tag_name"] + ">" + '</a>' + '</li>');
             }
-                     
-      
-        })         
+
+
+        })
         $(".tag_meny").prepend('<a class="spec_simbols_"> ! </a>');
         //---------------------------------------------------------------
-        
-   
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
         //-----------------------------------------------------------------
         var tgl = 0;
         var OfOn = 0;
@@ -104,8 +88,8 @@ $(document).ready(function() {
             };
         });
     });
-//--    
-   $("body").keypress(function(e) {
+    //--    
+    $("body").keypress(function(e) {
         $("#Input_Seorch").focus();
     });
     var value_seorch;
@@ -113,41 +97,124 @@ $(document).ready(function() {
         value_seorch = $("#Input_Seorch").val();
         seorch(value_seorch);
     }
+    var colectionLi = [];
+    var colectionUl = [];
+        
     function seorch(value_seorch) {
+        colectionLi = [];
+        colectionUl = [];
+        $(".wrap_tegs > ul > li > a").parent("li").css({
+            'display': 'none'
+        });
+        $(".wrap_tegs > ul > li > a").parent("li").parent("ul").css({
+            'display': 'none'
+        });
+         $(".wrap_tegs > ul > br").parent("li").parent("ul").css({
+            'display': 'none'
+        });
+        
+        
         $.each(html_tags, function(key, value) {
             if (value["tag_name"].indexOf(value_seorch) != -1) {
+                $(".wrap_tegs > ul > li > a").each(function(i, elem) {
+                    // console.log(t, "<" + value["tag_name"] + ">", "ывафвыафывафвыа" );
+                    if ("<" + value["tag_name"] + ">" != $(this).text()) {
+                        //  console.log("Bingo")
 
+
+                    } else if ("<" + value["tag_name"] + ">" == $(this).text()) {
+
+                        colectionLi.push($(this).parent("li"));
+                        colectionUl.push($(this).parent("li").parent("ul"));
+                        colectionUl.push($(this).parent("li").parent("ul").children("br"));
+                    }
+                    // console.log(colection)  
+
+                });
             }
         })
-    }    
-//--
-    
-// --- show teg information 
-$('.wrap_tegs').on('click', 'ul > li > a', function(event) {
-  var val_tag_name = $(this).text().slice(1, -1);
-   $('.wrap_tegs').css({'display' : 'none'});
- function seorch_tegs(val_tag_name) {
-   $.each(html_tags, function(key, value) {
-       console.log(value);
-     if (value["tag_name"] == val_tag_name) {
-               // ---
-               $(".tag_name").append('<p><span>Тег</span>' + '&lt;' + value["tag_name"] + '&gt;' + '</p>'); 
-               $(".tag_type").append('<p><span>sdfsdf</span>' + '&lt;' + value["tag_type"] + '&gt;' + '</p>'); 
-               $(".tag_attribute").append('<p><span>Тег</span>' + '&lt;' + value["tag_attribute"] + '&gt;' + '</p>'); 
-               $(".tag_syntax").append('<p><span>Тег</span>' + '&lt;' + value["tag_syntax"] + '&gt;' + '</p>'); 
-               $(".tag_closing").append('<p><span>Тег</span>' + '&lt;' + value["tag_closing"] + '&gt;' + '</p>'); 
-               $(".tag_description").append('<p><span>Тег</span>' + '&lt;' + value["tag_description"] + '&gt;' + '</p>'); 
-               $(".tag_specification").append('<p><span>Тег</span>' + '&lt;' + value["tag_specification"] + '&gt;' + '</p>'); 
-               $(".tag_example").append('<p><span>Тег</span>' + '&lt;' + value["tag_example"] + '&gt;' + '</p>'); 
-               $(".tag_note").append('<p><span>Тег</span>' + '&lt;' + value["tag_note"] + '&gt;' + '</p>'); 
-               // ---
-               //$(".tag_name  p").append("<span> фывафываыфв <span>"); 
-            }   
-         })
-      } 
- seorch_tegs(val_tag_name)                  
- });
-//---------------------------------------------------------------    
+        console.log(colectionLi)
+        colectionLi.forEach(function(item, i, arr) {
+            item.css({
+                'display': 'block'
+            });
+        });
+        
+          colectionUl.forEach(function(item, i, arr) {
+            item.css({
+                'display': 'block'
+            });
+        });
+
+
+    }
+
+    // --- show teg information 
+    $('.wrap_tegs').on('click', 'ul > li > a', function(event) {
+        var val_tag_name = $(this).text().slice(1, -1);
+        $('.wrap_tegs').css({
+            'display': 'none'
+        });
+
+        function seorch_tegs(val_tag_name) {
+            $.each(html_tags, function(key, value) {
+                if (value["tag_name"] == val_tag_name) {
+                    value["tag_syntax"] = value["tag_syntax"].replace('<', '&lt;');
+                    value["tag_note"] = value["tag_note"].replace('<', '&lt;');
+                    value["tag_description"] = value["tag_description"].replace('<', '&lt;');
+                    // ---
+                    $(".tag_name").append('<p>' + '<span>' + '&lt;' + value["tag_name"] + '&gt;' + '</span>' + '</p>');
+                    if (value["tag_type"] == "") {
+                        value["tag_type"] = "Нет информации"
+                    }
+                    $(".tag_type").append('<p><span>Тип:</span><br>' + '<span>' + value["tag_type"] + '</span>' + '</p>');
+
+                    if (value["tag_attribute"] == "") {
+                        value["tag_attribute"] = "Нет информации"
+                    }
+                    $(".tag_attribute").append('<p><span>Атрибуты:</span><br>' + '<span>' + value["tag_attribute"] + '</span>' + '</p>');
+
+                    if (value["tag_syntax"] == "") {
+                        value["tag_syntax"] = "Нет информации"
+                    }
+                    $(".tag_syntax").append('<p><span>Синтаксис:</span><br>' + '<span>' + value["tag_syntax"] + '</span>' + '</p>');
+
+                    if (value["tag_closing"] == 1) {
+                        value["tag_closing"] = "обязателен"
+                    } else {
+                        value["tag_closing"] = "не обязателен"
+                    }
+
+                    if (value["tag_closing"] == "") {
+                        value["tag_closing"] = "Нет информации"
+                    };
+                    $(".tag_closing").append('<p><span>Закрывающий тег :</span><br>' + '<span>' + value["tag_closing"] + '</span>' + '</p>');
+
+                    if (value["tag_description"] == "") {
+                        value["tag_description"] = "Нет информации"
+                    };
+                    $(".tag_description").append('<p><span>Описание:</span><br>' + '<span>' + value["tag_description"] + '</span>' + '</p>');
+
+                    if (value["tag_specification"] == "") {
+                        value["tag_specification"] = "Нет информации"
+                    };
+                    $(".tag_specification").append('<p><span>Спецыфикация:</span><br>' + '<span>' + value["tag_specification"] + '</span>' + '</p>');
+
+                    if (value["tag_example"] == "") {
+                        value["tag_example"] = "Нет информации"
+                    };
+                    $(".tag_example").append('<p><span>Пример:</span>' + '<span>' + '<plaintext>' + value["tag_example"] + '</plaintext>' + '</span>' + '</p>');
+
+                    if (value["tag_note"] == "") {
+                        value["tag_note"] = "Нет информации"
+                    };
+                    $(".tag_note").append('<p><span>Примечание:</span><br>' + '<span>' + value["tag_note"] + '</span>' + '</p>');
+                }
+            })
+        }
+        seorch_tegs(val_tag_name);
+    });
+    //---------------------------------------------------------------    
     var height_ul = function() {
         var height = $(".wrap_tegs > ul > li").height();
         var c = 0;
@@ -167,12 +234,12 @@ $('.wrap_tegs').on('click', 'ul > li > a', function(event) {
                 $(".wrap_tegs > .active").height((height + 80) * ctr);
             }
             $(".wrap_tegs > .active").height((height + 60) + 80);
-        });   
+        });
     }
-    
 
-    
-    
+
+
+
     $(".tag_meny").click(function() {
         height_ul();
     });

@@ -4,7 +4,7 @@
 <section>
     <h1>Справочник по HTML </h1>
     <input id="Input_Seorch" type="text" placeholder="Поиск">
-    <div class="tag_meny"> </div>
+    <div class="tag_meny"> <div class="home">home</div> </div>
     <div class="wrap_tegs">
         <ul> </ul>
     </div>
@@ -53,18 +53,19 @@ $(document).ready(function() {
         $(".tag_meny").prepend('<a class="spec_simbols_"> ! </a>');
         //---------------------------------------------------------------
 
-
+   
 
 
         //-----------------------------------------------------------------
         var tgl = 0;
         var OfOn = 0;
         $(".tag_meny > a").click(function() {
+         //   claer_funck();
             if ($(this).hasClass("active")) {
                 $(this).removeClass("active");
                 $("." + $(this).attr('class').slice(0, -1)).removeClass("active");
                 OfOn = false;
-            } else {
+            }else{
                 $('.wrap_tegs > ul').show();
                 $('br').show()
                 i = $("." + $(this).attr('class'))
@@ -72,6 +73,8 @@ $(document).ready(function() {
                 console.log(r)
                 r.addClass("active")
                 i.addClass("active")
+                $(".select_tag").css({'display': 'none'})
+                $(".wrap_tegs").css({'display': 'block'})
             }
             $('.wrap_tegs > ul').not('.active').hide('slow')
             $('br').not('.' + $(this).attr('class').slice(0, -1)).hide('slow')
@@ -88,6 +91,20 @@ $(document).ready(function() {
             };
         });
     });
+    //-----------------------------------------------------------------------------
+     var claer_funck = function(){
+         $(".select_tag").css({'display': 'none'});
+         $(".tag_meny > a").removeClass("active");
+         TegInformation = $(".select_tag").find("div");    
+         $(TegInformation).text(""); 
+         $('.wrap_tegs > ul').show();
+        // $('.wrap_tegs > ul > br').show();
+         $(".wrap_tegs").css({"display" :"block"})     
+         $("#Input_Seorch").val("");
+         $(".tag_meny > a").removeClass("active");
+         $('.wrap_tegs > ul').removeClass("active");
+         $('.wrap_tegs > ul > li').css({"display" : "block"})
+    }
     //--    
     $("body").keypress(function(e) {
         $("#Input_Seorch").focus();
@@ -119,21 +136,16 @@ $(document).ready(function() {
                 $(".wrap_tegs > ul > li > a").each(function(i, elem) {
                     // console.log(t, "<" + value["tag_name"] + ">", "ывафвыафывафвыа" );
                     if ("<" + value["tag_name"] + ">" != $(this).text()) {
-                        //  console.log("Bingo")
-
-
                     } else if ("<" + value["tag_name"] + ">" == $(this).text()) {
 
                         colectionLi.push($(this).parent("li"));
                         colectionUl.push($(this).parent("li").parent("ul"));
                         colectionUl.push($(this).parent("li").parent("ul").children("br"));
                     }
-                    // console.log(colection)  
 
                 });
             }
         })
-        console.log(colectionLi)
         colectionLi.forEach(function(item, i, arr) {
             item.css({
                 'display': 'block'
@@ -152,9 +164,12 @@ $(document).ready(function() {
     // --- show teg information 
     $('.wrap_tegs').on('click', 'ul > li > a', function(event) {
         var val_tag_name = $(this).text().slice(1, -1);
+        $(".select_tag").css({'display':'block'});
         $('.wrap_tegs').css({
             'display': 'none'
         });
+ 
+     $(".tag_meny > a").removeClass("active");
 
         function seorch_tegs(val_tag_name) {
             $.each(html_tags, function(key, value) {
@@ -238,10 +253,54 @@ $(document).ready(function() {
     }
 
 
-
-
     $(".tag_meny").click(function() {
         height_ul();
     });
+       
+    
+// --- home  
+
+$(".home").click(function(){claer_funck()});
+    
+// --- Резиновость   
+    
+var old_window_size = $(window).width();
+var new_window_size;
+var elem_size_new;    
+var elem_size_old = $(".wrap_tegs").width();    
+    
+$( window ).resize(function() {
+      
+new_window_size = $(window).width()
+
+
+if(old_window_size > new_window_size ) {
+   elem_size_new = old_window_size - new_window_size;
+    
+ if(elem_size_old > 400) {  
+    $(".wrap_tegs").width(elem_size_old - elem_size_new);
+    $(".select_tag").width(elem_size_old - elem_size_new); 
+    $(".select_tag > div > p > span").width( $(".wrap_tegs").width() - 100)
+    $(".tag_example > plaintext").width( $(".wrap_tegs").width() - 100)
+ }
+    
+}else{
+ old_window_size = new_window_size;
+ elem_size_new = old_window_size - new_window_size; 
+
+if(elem_size_old != 1400){
+   $(".wrap_tegs").width(elem_size_old + elem_size_new);
+   $(".select_tag").width(elem_size_old + elem_size_new);
+   $(".select_tag > div > p  > span").width( $(".wrap_tegs").width() - 200)
+  $(".tag_example > plaintext").width( $(".wrap_tegs").width() - 200)
+ }    
+ }
+
+
+   
+});
+    
+    
+    
 });
     </script>

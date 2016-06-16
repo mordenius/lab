@@ -185,11 +185,11 @@ body > h1 {
     color: #666;
 }
 
-.tag_meny{
+.tag_meny {
     margin-top: 84px;
     font-size: 20px;
     margin-bottom: 80px;
-    width: 585px;
+    width: 678px;
     margin-left: 0;
     margin-right: 0;
     height: 60px;
@@ -199,10 +199,7 @@ body > h1 {
     /* -webkit-box-shadow: inset 0px 0px 50px 0px #FFFAFA,5px 5px 5px 1px #BFB5B5; */
     -moz-box-shadow: inset 0px 0px 50px 0px #FFFAFA,5px 5px 5px 1px #BFB5B5;
     -o-box-shadow: inset 0px 0px 50px 0px #FFFAFA,5px 5px 5px 1px #BFB5B5;
-}
-
-.tag_meny{
-  
+    margin: 45px auto;
 }
 
 
@@ -260,7 +257,10 @@ h2 {
     box-shadow: -1px 5px 69px 0 #000000,0px 0 0 0px;
     -moz-box-shadow: inset 0px 0px 50px 0px #FFFAFA,5px 5px 5px 1px #BFB5B5;
     -o-box-shadow: inset 0px 0px 50px 0px #FFFAFA,5px 5px 5px 1px #BFB5B5;
+    margin: 0 auto;
 }
+
+.wrap_tegs {}
 
 .wrap_tegs > ul > li > a  {
     margin-left: 47px;
@@ -277,13 +277,18 @@ h2 {
  -moz-box-shadow: inset 0px 0px 50px 0px #FFFAFA,5px 5px 5px 1px #BFB5B5;
  -o-box-shadow: inset 0px 0px 50px 0px #FFFAFA,5px 5px 5px 1px #BFB5B5;
  color: #000000;
+ margin: 0 auto;
+ display: block; */
 }
 
 input#Input_Seorch {}
 
 section > h1 {
     margin-top: 80px;
+    text-align: center;
 }
+
+h1 {}
 
 .select_tag{
     
@@ -293,7 +298,7 @@ margin: 0 auto;
     
 background: rgba(198, 180, 180, 0.14);
     
-height: 1920px;
+/* height: 1920px; */
     
 box-shadow: -1px 5px 69px 0 #000000,0px 0 0 0px;
     
@@ -302,6 +307,10 @@ box-shadow: -1px 5px 69px 0 #000000,0px 0 0 0px;
 -moz-box-shadow: inset 0px 0px 50px 0px #FFFAFA,5px 5px 5px 1px #BFB5B5;
     
 -o-box-shadow: inset 0px 0px 50px 0px #FFFAFA,5px 5px 5px 1px #BFB5B5;
+    
+display: none;
+    
+padding-bottom: 20px;
 }
 
 
@@ -403,10 +412,25 @@ pre {
     white-space: normal;
 }
 
+.home {
+    float: right;
+    margin-right: 33px;
+    width: 65px;
+    height: 30px;
+    /* background: darkcyan; */
+    text-align: right;
+    color: #fbdeb0;
+    border-left: 1px;
+    border-left-style: dashed;
+    border-color: #7c7163;
+    cursor: pointer;
+    margin-left: 2px;
+}
 
 
-
-
+.home:hover{
+ color:white;    
+}
 
 
 
